@@ -1,0 +1,28 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @cine_movie.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cine_movie.description %>
+</p>
+
+<p>
+  <strong>Movie lenght:</strong>
+  <%= @cine_movie.movie_lenght %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @cine_movie.director %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @cine_movie.rating %>
+</p>
+
+<%= link_to 'Edit', edit_cine_movie_path(@cine_movie) %> |
+<%= link_to 'Back', cine_movies_path %>

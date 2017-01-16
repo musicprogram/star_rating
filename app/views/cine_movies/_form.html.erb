@@ -1,0 +1,48 @@
+<%= form_for(cine_movie) do |f| %>
+  <% if cine_movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cine_movie.errors.count, "error") %> prohibited this cine_movie from being saved:</h2>
+
+      <ul>
+      <% cine_movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :movie_lenght %>
+    <%= f.text_field :movie_lenght %>
+  </div>
+
+  <div class="field">
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="field">
+     <div id="star-rating"></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'cine_movie[rating]'
+  });
+</script>

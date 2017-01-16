@@ -1,0 +1,1 @@
+json.array! @cine_movies, partial: 'cine_movies/cine_movie', as: :cine_movie

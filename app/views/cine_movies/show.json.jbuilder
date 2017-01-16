@@ -1,0 +1,1 @@
+json.partial! "cine_movies/cine_movie", cine_movie: @cine_movie

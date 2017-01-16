@@ -1,0 +1,49 @@
+
+
+<h1>Cine Movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Movie lenght</th>
+      <th>Director</th>
+      <th>Rating</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cine_movies.each do |cine_movie| %>
+      <tr>
+        <td><%= cine_movie.title %></td>
+        <td><%= cine_movie.description %></td>
+        <td><%= cine_movie.movie_lenght %></td>
+        <td><%= cine_movie.director %></td>
+        <td class="star-rating" data-score= <%= cine_movie.rating %> ></td>
+        <td><%= cine_movie.user.try(:email) %></td>  
+        <td><%= link_to 'Show', cine_movie %></td>
+        <td><%= link_to 'Edit', edit_cine_movie_path(cine_movie) %></td>
+        <td><%= link_to 'Destroy', cine_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cine Movie', new_cine_movie_path %>
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
